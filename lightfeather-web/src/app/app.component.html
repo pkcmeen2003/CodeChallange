@@ -1,0 +1,21 @@
+<div class="form-container">
+<div class="form-header">Notification Form</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label for="firstName">First Name</label>
+  <input id="firstName" type="text" formControlName="name">
+  <label for="lastName">Last Name</label>
+  <input id="lastName" type="text" formControlName="lname">
+  <label for="phone">Phone</label>
+  <input id="phone" type="text" formControlName="phone">
+  <label for="email">Email</label>
+  <input id="email" type="email" formControlName="email">
+  <label for="supervisor">Supervisor</label>
+  <select id="supervisor" formControlName="supervisor">
+    <option *ngFor="let eachSupervisor of supervisors" [value]="eachSupervisor">
+      {{ eachSupervisor }}
+    </option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
+</div>
+<div *ngIf="errorMsg">{{ errorMsg }}</div>
